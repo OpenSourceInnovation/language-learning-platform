@@ -1,0 +1,28 @@
+.mainback {
+  min-height: 45vh;
+  display: flex;
+  padding: 10px 0;
+  background-image:url('img.png');
+}
+.mainback{
+  margin-bottom: 4rem;
+}
+
+.heading{
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 80px;
+  padding: 50px 10px;
+  color: aliceblue;
+}
+
+@media only screen and (max-width: 600px) {
+  .heading {
+    font-size: 45px;
+    display: flex;
+    justify-content: center;
+  }
+}
+.page {
+  width: 100%;
+  color: white;
+}
