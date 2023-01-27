@@ -1,0 +1,25 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ all ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/setup-node@v3.6.0
+      with:
+        node-version: '16'
+    - name: Build Frontend
+      run: |
+        cd frontend/
+        npm install
+        npm run build
+    - name: Build Backend
+      run: |
+        cd backend/
+        npm install
+        npm run build
