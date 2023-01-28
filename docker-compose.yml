@@ -1,0 +1,36 @@
+version: "3.8"
+services:
+      database:
+        container_name: postgres
+        build: ./database/
+        restart: always
+        networks:
+          - default
+        ports:
+          - "5432:5432"
+        env_file:
+          - .env
+        stdin_open: true
+
+      backend:
+        build: ./backend/
+        depends_on:
+          - database
+        restart: always
+        networks:
+          - default
+        env_file:
+          - .env
+        ports:
+          - "5000:5000"
+
+      frontend:
+        build: ./frontend/
+        restart: always
+        networks:
+          - default
+        ports:
+          - "3000:3000"
+        env_file:
+          - .env
+        stdin_open: true
